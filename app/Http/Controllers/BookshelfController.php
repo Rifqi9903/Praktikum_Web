@@ -21,6 +21,42 @@ class BookshelfController extends Controller
         'name' => $request->name,
         'code' => $request->code
        ]);
-       return redirect()->route('bookshelf.index');
+       $notification = [
+        'message' => 'Data buku berhasil ditambahkan',
+        'alert-type' => 'success'
+        ];
+     
+        return redirect()->route('bookshelf.index')->with($notification);
+    }
+    public function edit($id){
+        $data['bookshelf']=Bookshelf::findOrFail($id);
+        return view('Bookshelves.edit')->with($data);
+    }
+    public function update(Request $request, $id){
+        $data = Bookshelf::findOrFail($id);
+        $validated = $request->validate([
+            'code' => ['integer', 'required'],
+            'name' => ['string', 'required']
+        ]);
+        $data->update($validated);
+
+        $notification = [
+            'message' => 'Data buku berhasil diupdate',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('bookshelf.index')->with($notification);
+    }
+    public function destroy(string $id)
+    {
+        $data = Bookshelf::findOrFail($id);
+       //Storage::delete('public/cover_buku/'.$book->cover);
+
+        $data->delete();
+        $notification = array(
+            'message' => 'Data buku berhasil dihapus',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('bookshelf.index')->with($notification);
     }
 }

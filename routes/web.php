@@ -33,7 +33,10 @@ Route::middleware('auth')->group(function () {
     ], function(){
         Route::get('/', [BookshelfController::class, 'index'])->name('index');
         Route::get('/create', [BookshelfController::class, 'create'])->name('create');
+        Route::get('/edit/{id}', [BookshelfController::class, 'edit'])->name('edit');
         Route::post('/', [BookshelfController::class, 'store'])->name('store');
+        Route::put('/update/{id}', [BookshelfController::class, 'update'])->name('update');
+        Route::delete('/books/{id}', [BookshelfController::class, 'destroy'])->name('destroy');
     });
 });
 
