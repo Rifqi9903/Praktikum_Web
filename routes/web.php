@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Bookcontroller;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function(){
     Route::view('/roles','role')->name('role')->middleware(['role:pustakawan']);
+});
+
+//route Book
+Route::middleware('auth')->group(function () {
+    Route::get('/books', [Bookcontroller::class, 'index'])->name('book');
+    Route::get('/books/create', [BookController::class, 'create'])->name('book.create');
+    Route::post('/books', [BookController::class, 'store'])->name('book.store');
+    Route::get('/books/{id}/edit', [BookController::class,'edit'])->name('book.edit');
+    Route::match(['put', 'patch'], '/books/{id}',[BookController::class, 'update'])->name('book.update');
+    Route::delete('/books/{id}', [BookController::class,'destroy'])->name('book.destroy');
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

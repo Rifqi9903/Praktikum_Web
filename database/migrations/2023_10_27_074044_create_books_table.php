@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('publisher', 255);
             $table->string('city', 255);
             $table->string('cover', 255);
+            $table->integer('quantity');
             $table->unsignedBigInteger('bookshelf_id');
             $table->foreign('bookshelf_id')
                 ->references('id')
-                ->on('bookshelfs')
+                ->on('bookshelves')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->timestamps();

@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
                 generalSeeder::class,
-                bookshelfsSeeder::class,
-                booksSeeder::class,
+                BookshelfSeeder::class,
+                BooksSeeder::class,
                 CategoriesSeeder::class,
             ]);        // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
