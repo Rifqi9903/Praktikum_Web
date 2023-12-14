@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class booksSeeder extends Seeder
+class BooksSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,6 +20,7 @@ class booksSeeder extends Seeder
         'publisher' => 'Disney-Hyperion Books',
         'city' => 'New York',
         'cover' => 'book1.jpg',
+        'quantity'=>1,
         'bookshelf_id' => 1,
         ],
         ['title' => 'A Study in Drowning',
@@ -28,6 +29,7 @@ class booksSeeder extends Seeder
         'publisher' => 'HarperTeen',
         'city' => 'Palo Alto',
         'cover' => 'book2.jpg',
+        'quantity'=>1,
         'bookshelf_id' => 2,
         ],
         ['title' => 'Thieves Gambit',
@@ -36,6 +38,7 @@ class booksSeeder extends Seeder
         'publisher' => 'Nancy Paulsen Books',
         'city' => 'New York',
         'cover' => 'book3.jpg',
+        'quantity'=>1,
         'bookshelf_id' => 3,
         ],
 
