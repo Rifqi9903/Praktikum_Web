@@ -18,7 +18,7 @@ return new class extends Migration
             $table->year('year');
             $table->string('publisher', 255);
             $table->string('city', 255);
-            $table->string('cover', 255);
+            $table->string('cover', 255)->nullable();
             $table->integer('quantity');
             $table->unsignedBigInteger('bookshelf_id');
             $table->foreign('bookshelf_id')

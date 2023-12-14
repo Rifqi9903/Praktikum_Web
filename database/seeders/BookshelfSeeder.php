@@ -35,6 +35,20 @@ class BookshelfSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now()
             ],
+            [
+                'id' => '4',
+                'code' => '322',
+                'name' => 'Fiction',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'id' => '5',
+                'code' => '322',
+                'name' => 'fantasy',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
         ]);
     }
 }
